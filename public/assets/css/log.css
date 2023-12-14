@@ -6,14 +6,6 @@
     font-family:  "Poppins", sans-serif;
     box-sizing: border-box;
 }
-
-.header-area .main-nav {
-    min-height: 80px;
-    background: transparent;
-    display: flex;
-    padding: 15px 0px;
-    border-radius: 50px;
-  }
   
 .hero {
     width: 100%;

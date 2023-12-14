@@ -13,7 +13,7 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
+    
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="assets/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
@@ -67,7 +67,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                         <li><a href="browse">Trending</a></li>
                         <li><a href="details">Details</a></li>
                         <li><a href="streams">Katalog</a></li>
-                      </ul>
+                      </ul> 
                       <img src="assets\images\Novin Logo.png" alt="profil" class="user-pic" onclick="toggleMenu()" />
                       <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
@@ -76,26 +76,41 @@ https://templatemo.com/tm-579-cyborg-gaming
                             <h3>NOVIN</h3>
                           </div>
                           <hr />
-                          <a href="login" class="sub-menu-link">
+                          <a href="#" class="sub-menu-link">
                             <i data-feather="user" class="icon"></i>
                             <p>Edit Profille</p>
                             <span> </span>
                           </a>
+                          @if(!Auth::check())
+                          <li><a class="getstarted scrollto" href="/login">Login</a></li>
+                          @else
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <b class="text-primary">{{ Auth::user()->email}}</b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                  <li class="p-2 bg-info text-bold">Level: {{ Auth::user()->role}}</li>
+                                  <li>
+                                      <hr class="dropdown-divider">
+                                  </li>
+                                  <li class="p-2">
+                                      <a href="{{route('actionlogout')}}">
+                                          <button class="btn btn-outline-success" type="submit">Log Out</button>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                          @endif
                           <a href="#" class="sub-menu-link">
                             <i data-feather="settings" class="icon"></i>
                             <p>Settings & Privacy</p>
-                            <span> </span>
-                          </a>
-                          <a href="/login" class="sub-menu-link">
-                            <i data-feather="help-circle" class="icon"></i>
-                            <p>Log Out</p>
                             <span> </span>
                           </a>
                         </div>
                       </div>
                     </nav>
                    </div>
-                   <script>               
+                   <script>                 
                       feather.replace();
                     </script>
 

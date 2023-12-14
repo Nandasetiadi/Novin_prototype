@@ -382,18 +382,28 @@ Header Style
 
 .header-area .main-nav #search input {
   background-color: #27292a;
+    height: 46px;
+    border-radius: 23px;
+    border: none;
+    color: #666;
+    font-size: 14px;
+    padding: 0px 15px 0px 45px;
+}
+
+.header-area .main-nav #search button {
+  background-color: #4285f4;
+  color: #fff;
+  border: none; 
   height: 46px;
   border-radius: 23px;
-  border: none;
-  color: #666;
-  font-size: 14px;
-  padding: 0px 15px 0px 45px;
+  padding: 0 15px;
+  cursor: pointer;
 }
 
 .header-area .main-nav #search i {
   position: absolute;
   color: #666;
-  left: 20px;
+  left: 10px;
   top: 16px;
   width: 18px;
   height: 18px;
@@ -637,11 +647,14 @@ Header Style
     top: 0;
   }
   .header-area .main-nav {
+    display: flex;
+    flex-wrap: wrap;
     background-color: transparent;
     border-radius: 0px;
   }
   .header-area .main-nav .nav {
     height: auto;
+    flex-grow: 1;
     flex-basis: 100%;
   }
   .header-area .main-nav .logo {
@@ -678,8 +691,9 @@ Header Style
   .header-area .container {
     padding: 0px;
   }
-  .header-area .logo {
-    margin-left: 0px;
+  .header-area .item{
+    flex-grow: 1;
+    flex-basis: 200;
   }
   .header-area .menu-trigger {
     display: block !important;
