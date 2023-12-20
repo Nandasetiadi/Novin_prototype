@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css">
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/log.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
 <!--
 
@@ -50,11 +51,6 @@ https://templatemo.com/tm-579-cyborg-gaming
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index" class="logo">
-                        <img src="assets/images/logo.png" alt="">
-                    </a>
-                    <!-- ***** Logo End ***** -->
                     <!-- ***** Search End ***** -->
                     <div class="search-input">
                       <form id="search" action="#">
@@ -65,15 +61,73 @@ https://templatemo.com/tm-579-cyborg-gaming
                     <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index">Home</a></li>
+                      <li><a href="index" class="active">Home</a></li>
                         <li><a href="browse">Trending</a></li>
-                        <li><a href="details">Details</a></li>
-                        <li><a href="streams">katalog</a></li>
-                        <li><a href="profile" class="active">Profile <img src="assets/images/profile-header.jpg" alt=""></a></li>
-                    </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
+                        <li><a href="details">History</a></li>
+                        <li><a href="streams">Katalog</a></li>
+                  </ul>
+                  <img src="assets\images\Novin Logo.png" alt="profil" class="user-pic" onclick="toggleMenu()" />
+                      <div class="sub-menu-wrap" id="subMenu">
+                        <div class="sub-menu">
+                          <div class="user-info">
+                            <img src="assets\images\Novin Logo.png" alt="profil" class="user-pic" />
+                            <h3>NOVIN</h3>
+                          </div>
+                          <hr />
+                          <a href="profile" class="sub-menu-link">
+                            <i data-feather="user" class="icon"></i>
+                            <p>Edit Profille</p>
+                            <span> </span>
+                          </a>
+                          @if(!Auth::check())
+                          <li>
+                            <a href="/login" class="sub-menu-link">
+                              <i data-feather="user" class="icon"></i>
+                              <p>Login</p>
+                              <span> </span>
+                              </a>
+                          </li>
+                          @else
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  <b class="text-primary" >{{ Auth::user()->email}} </b>
+                              </a>
+                              <ul class="dropdown-menu">
+                                  <li class="p-2 bg-info text-bold">Level: {{ Auth::user()->role}}</li>
+                                  <li>
+                                      <hr class="dropdown-divider">
+                                  </li>
+                                  <li class="p-2">
+                                      <a href="{{route('actionlogout')}}">
+                                          <button class="btn btn-outline-success" type="submit">Log Out</button>
+                                      </a>
+                                  </li>
+                              </ul>
+                          </li>
+                          @endif
+                            <span> </span>
+                          <a href="#" class="sub-menu-link">
+                            <i data-feather="settings" class="icon"></i>
+                            <p>Settings & Privacy</p>
+                            <span> </span>
+                          </a>
+                        </div>
+                      </div>
+                    </nav>
+                   </div>
+                   <script>                 
+                      feather.replace();
+                    </script>
+
+                    <script>                      
+                    let subMenu = document.getElementById("subMenu");
+                    
+                    function toggleMenu() {
+                    
+                    subMenu.classList.toggle("open-menu");                
+                    }
+                    
+                    </script>   
                     <!-- ***** Menu End ***** -->
                 </nav>
             </div>

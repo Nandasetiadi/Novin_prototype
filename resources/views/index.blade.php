@@ -60,15 +60,13 @@ https://templatemo.com/tm-579-cyborg-gaming
                     </div>
                     <!-- ***** Search End ***** -->
                     <!-- ***** Menu Start ***** -->
-                   <div class="hero">
-                    <nav>
-                      <ul>
-                        <li><a href="index" class="active">Home</a></li>
+                    <ul class="nav">
+                      <li><a href="index" class="active">Home</a></li>
                         <li><a href="browse">Trending</a></li>
-                        <li><a href="details">Details</a></li>
+                        <li><a href="details">History</a></li>
                         <li><a href="streams">Katalog</a></li>
-                      </ul> 
-                      <img src="assets\images\Novin Logo.png" alt="profil" class="user-pic" onclick="toggleMenu()" />
+                  </ul>
+                  <img src="assets\images\Novin Logo.png" alt="profil" class="user-pic" onclick="toggleMenu()" />
                       <div class="sub-menu-wrap" id="subMenu">
                         <div class="sub-menu">
                           <div class="user-info">
@@ -76,17 +74,23 @@ https://templatemo.com/tm-579-cyborg-gaming
                             <h3>NOVIN</h3>
                           </div>
                           <hr />
-                          <a href="#" class="sub-menu-link">
+                          <a href="profile" class="sub-menu-link">
                             <i data-feather="user" class="icon"></i>
                             <p>Edit Profille</p>
                             <span> </span>
                           </a>
                           @if(!Auth::check())
-                          <li><a class="getstarted scrollto" href="/login">Login</a></li>
+                          <li>
+                            <a href="/login" class="sub-menu-link">
+                              <i data-feather="user" class="icon"></i>
+                              <p>Login</p>
+                              <span> </span>
+                              </a>
+                          </li>
                           @else
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                  <b class="text-primary">{{ Auth::user()->email}}</b>
+                                  <b class="text-primary" >{{ Auth::user()->email}} </b>
                               </a>
                               <ul class="dropdown-menu">
                                   <li class="p-2 bg-info text-bold">Level: {{ Auth::user()->role}}</li>
@@ -101,6 +105,8 @@ https://templatemo.com/tm-579-cyborg-gaming
                               </ul>
                           </li>
                           @endif
+                            <span> </span>
+                          </a>
                           <a href="#" class="sub-menu-link">
                             <i data-feather="settings" class="icon"></i>
                             <p>Settings & Privacy</p>
@@ -122,8 +128,7 @@ https://templatemo.com/tm-579-cyborg-gaming
                     subMenu.classList.toggle("open-menu");                
                     }
                     
-                    </script>
-                    
+                    </script>   
                     <!-- ***** Menu End ***** -->
                 </nav>
             </div>

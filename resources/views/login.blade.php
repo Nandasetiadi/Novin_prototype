@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Login – Novel Indonesia</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -21,13 +22,18 @@
 
                 <form action="{{ route('actionlogin') }}" method="post">
                     @csrf
-                    <div class="form-group">
+                    <div class="inputform-groupbox">
+                        <ion-icon name="mail-outline"></ion-icon>
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email" required="">
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
                     </div>
-                    <div class="form-group">
+                    <div class="inputform-groupbox">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
                         <label>Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Password" required="">
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <div class="forget">
+                        <label for=""><input type="checkbox">Remember Me</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block">Log
                         In</button>
